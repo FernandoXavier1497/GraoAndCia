@@ -13,12 +13,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-  <!-- ESTILOS -->
+  <!-- ESTILOS -->''
   <link rel="stylesheet" href="../styles/style.css">
 
   <title>Grão & Cia</title>
+  
 </head>
 <body>
+  <!-- No início do <body> -->
+<div class="loader">
+    <div class="coffee-cup"></div>
+</div>
+
   <!-- HEADER -->
   <header class="header">
     <section>
@@ -35,9 +41,58 @@
       </nav>
 
       <div class="icons">
-        <i class="fas fa-search"></i>
+    <div class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+        <div id="cart-items-container">
+            <ul id="cart-items"></ul>
+            <div class="cart-total" style="color: #fff; font-size: 1.6rem; padding: 1rem 0; border-top: var(--border);">
+                Total: R$ <span id="cart-total">0,00</span>
+            </div>
+
+                   <!-- Modal Finalizar Pedido -->
+<div id="checkout-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Finalizar Pedido</h3>
+    
+    <div class="order-summary">
+      <h4>Resumo do Pedido</h4>
+      <div id="checkout-items"></div>
+      <div class="checkout-total">
+        <strong>Total:</strong> R$ <span id="checkout-total">0,00</span>
       </div>
+    </div>
+    <button id="back-to-cart" class="btn back-btn">Voltar para o Carrinho</button>
+    <form id="checkout-form">
+     <form id="checkout-form">
+      <div class="form-group">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="payment">Forma de Pagamento</label>
+        <select id="payment" required>
+          <option value="">Selecione...</option>
+          <option value="credit">Cartão de Crédito</option>
+          <option value="debit">Cartão de Débito</option>
+          <option value="pix">PIX</option>
+          <option value="cash">Dinheiro</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Confirmar Pagamento</button>
+    </form>
+  </div>
+</div>
+        </div>
+    </div>
+</div>
+
+
     </section>
   </header>
 
@@ -190,5 +245,8 @@
     </div>
     <p>&copy; 2025 Grão & Cia. Todos os direitos reservados.</p>
   </footer>
+
+  <script src="../scripts/main.js"></script>
+
 </body>
 </html>

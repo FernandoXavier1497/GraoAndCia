@@ -83,10 +83,246 @@ section {
     transition: color 0.3s ease;
 }
 
+
 .icons i:hover {
     color: var(--main-color);
     width: 40px;
     height: 40px;
+}
+
+/* Estilos do carrinho */
+#cart-items-container {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 350px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: var(--black);
+    border: var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+/* Estilos do Carrinho */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-left: 2rem;
+}
+
+.cart-icon:hover {
+    color: var(--main-color);
+}
+
+#cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+#cart-items-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    width: 350px;
+    max-height: 500px;
+    overflow-y: auto;
+    background: #333;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #444;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.cart-item-name {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.cart-item-price {
+    font-size: 1.2rem;
+    color: var(--main-color);
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.cart-item-quantity button {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.remove-item {
+    background: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-left: auto;
+}
+
+.checkout-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+/* Modal de Checkout */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: .5rem;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    color: #333;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.order-summary {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+}
+
+.checkout-total {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    text-align: right;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 1.4rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+}
+
+.form-group select {
+    height: 40px;
+}
+
+.modal-content .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.modal-content .btn:hover {
+    background: var(--hover-color);
+}
+
+.back-btn {
+    background: #666 !important;
+    margin-bottom: 1rem;
+}
+
+.back-btn:hover {
+    background: #555 !important;
 }
 
 .btn {
