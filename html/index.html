@@ -31,7 +31,7 @@
       <a href="#" class="logo">
         <img src="../logo/LogoGrao.png" alt="logo-img">
       </a>
-
+    
       <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#about">Sobre</a>
@@ -118,54 +118,420 @@
         <h3>O Que Faz Nosso Café Especial</h3>
         <p>Selecionamos os melhores grão de café, cultivados de forma sustentável para oferecer qualidade e sabor.</p>
         <p>Cada xícara é preparada com dedicação para criar uma experiência memorável para você.</p>
-        <a href="#" class="btn">Saiba mais</a>
+        <a href="/html/sobre.html" class="btn">Saiba mais</a>
       </div>
     </div>
   </section>
 
-  <!-- MENU -->
-  <section class="menu" id="menu">
-    <h2 class="title">Nosso <span>Menu</span></h2>
+ <!-- MENU -->
+<section class="menu" id="menu">
+  <h2 class="title">Nosso <span>Menu</span></h2>
 
-    <div class="box-container">
-      <div class="box">
-        <img src="../imagens/menu-1.png" alt="item-1">
-        <h3>Capuccino Tradicional</h3>
-        <div class="price">R$ 15,99 <span>R$ 20,99</span></div>
-        <a href="#" class="btn">Adicione ao Carrinho</a>
-      </div>
-      <div class="box">
-        <img src="../imagens/menu-2.png" alt="item-2">
-        <h3>Café Expresso</h3>
-        <div class="price">R$ 4,99 <span>R$ 6,99</span></div>
-        <a href="#" class="btn">Adicione ao Carrinho</a>
-      </div>
-      <div class="box">
-        <img src="../imagens/menu-3.png" alt="item-3">
-        <h3>Capuccino Gelado</h3>
-        <div class="price">R$ 17,99 <span>R$ 20,99</span></div>
-        <a href="#" class="btn">Adicione ao Carrinho</a>
-      </div>
-      <div class="box">
-        <img src="../imagens/menu-4.png" alt="item-4">
-        <h3>Mocha</h3>
-        <div class="price">R$ 20,90 <span>R$ 24,90</span></div>
-        <a href="#" class="btn">Adicione ao Carrinho</a>
-      </div>
-      <div class="box">
-        <img src="../imagens/menu-5.png" alt="item-5">
-        <h3>Expresso Duplo</h3>
-        <div class="price">R$ 9,90 <span>R$ 12,99</span></div>
-        <a href="#" class="btn">Adicione ao Carrinho</a>
-      </div>
-      <div class="box">
-        <img src="../imagens/menu-6.png" alt="item-6">
-        <h3>Café Coado</h3>
-        <div class="price">R$ 18,99 <span>R$ 20,99</span></div>
-        <a href="#" class="btn">Adicione ao Carrinho</a>
+  <div class="box-container">
+    <!-- 6 itens iniciais do menu -->
+    <div class="box">
+      <img src="../imagens/menu-1.png" alt="Capuccino Tradicional">
+      <h3>Capuccino Tradicional</h3>
+      <div class="price">R$ 15,99 <span>R$ 20,99</span></div>
+      <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+    </div>
+    
+    <div class="box">
+      <img src="../imagens/menu-2.png" alt="Café Expresso">
+      <h3>Café Expresso</h3>
+      <div class="price">R$ 4,99 <span>R$ 6,99</span></div>
+      <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+    </div>
+    
+    <div class="box">
+      <img src="../imagens/menu-3.png" alt="Capuccino Gelado">
+      <h3>Capuccino Gelado</h3>
+      <div class="price">R$ 17,99 <span>R$ 20,99</span></div>
+      <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+    </div>
+    
+    <div class="box">
+      <img src="../imagens/menu-4.png" alt="Mocha">
+      <h3>Mocha</h3>
+      <div class="price">R$ 20,90 <span>R$ 24,90</span></div>
+      <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+    </div>
+    
+    <div class="box">
+      <img src="../imagens/menu-5.png" alt="Expresso Duplo">
+      <h3>Expresso Duplo</h3>
+      <div class="price">R$ 9,90 <span>R$ 12,99</span></div>
+      <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+    </div>
+    
+    <div class="box">
+      <img src="../imagens/menu-6.png" alt="Café Coado">
+      <h3>Café Coado</h3>
+      <div class="price">R$ 18,99 <span>R$ 20,99</span></div>
+      <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+    </div>
+  </div>
+
+  <!-- Botão para mostrar/ocultar cardápio completo -->
+  <div class="btn-container">
+    <button id="toggleMenu" class="btn">Ver cardápio completo</button>
+  </div>
+
+  <!-- Cardápio completo (inicialmente oculto) -->
+  <div id="fullMenu" style="display: none;">
+    <!-- Café Quente -->
+    <div class="menu-section">
+      <h3 class="subtitle">Cafés <span>Quentes</span></h3>
+      <div class="box-container">
+        <div class="box">
+          <img src="../imagens/menu-1.png" alt="Capuccino Tradicional">
+          <h3>Capuccino Tradicional</h3>
+          <div class="price">R$ 15,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/menu-2.png" alt="Café Expresso">
+          <h3>Café Expresso</h3>
+          <div class="price">R$ 4,99 <span>R$ 6,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/menu-5.png" alt="Americano">
+          <h3>Americano</h3>
+          <div class="price">R$ 9,99 <span>R$ 11,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/menu-4.png" alt="Mocha">
+          <h3>Mocha</h3>
+          <div class="price">R$ 20,90 <span>R$ 24,90</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/menu-5.png" alt="Expresso Duplo">
+          <h3>Expresso Duplo</h3>
+          <div class="price">R$ 9,90 <span>R$ 12,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/menu-6.png" alt="Café Coado">
+          <h3>Café Coado</h3>
+          <div class="price">R$ 18,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_6.jpg" alt="Caramelo Machiato">
+          <h3>Caramelo Machiato</h3>
+          <div class="price">R$ 21,99 <span>R$ 24,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Café_gelado_10.jpg" alt="Latte">
+          <h3>Latte</h3>
+          <div class="price">R$ 17,99 <span>R$ 19,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_8.jpg" alt="Hot Latte Aveia">
+          <h3>Hot Latte Aveia</h3>
+          <div class="price">R$ 21,99 <span>R$ 23,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_7.jpg" alt="Flat White">
+          <h3>Flat White</h3>
+          <div class="price">R$ 18,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Café Gelado -->
+    <div class="menu-section">
+      <h3 class="subtitle">Cafés <span>Gelados</span></h3>
+      <div class="box-container">
+        <div class="box">
+          <img src="../imagens/cafe-gelado-1.jpg" alt="Iced Latte Aveia">
+          <h3>Iced Latte Aveia</h3>
+          <div class="price">R$ 21,99 <span>R$ 23,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cafe-gelado-2.jpg" alt="Al Green">
+          <h3>Al Green</h3>
+          <div class="price">R$ 24,99 <span>R$ 26,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_3.jpg" alt="Capuccino Gelado">
+          <h3>Capuccino Gelado</h3>
+          <div class="price">R$ 17,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_9.jpg" alt="Iced Coffee">
+          <h3>Iced Coffee</h3>
+          <div class="price">R$ 20,90 <span>R$ 24,90</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_1.jpg" alt="Iced Coffee Com Nutella">
+          <h3>Iced Coffee Com Nutella</h3>
+          <div class="price">R$ 27,90 <span>R$ 30,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/Cafe_gelado_3.png" alt="Honeycomb">
+          <h3>Honeycomb</h3>
+          <div class="price">R$ 22,99 <span>R$ 25,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chá Quente -->
+    <div class="menu-section">
+      <h3 class="subtitle">Chás <span>Quentes</span></h3>
+      <div class="box-container">
+        <div class="box">
+          <img src="../imagens/cha-quente-6.jpg" alt="Chá Preto">
+          <h3>Chá Preto Com Especiarias e Leite Vaporizado</h3>
+          <div class="price">R$ 12,99 <span>R$ 14,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-quente-4.jpg" alt="Chá Verde">
+          <h3>Chá Verde Com Hortelã e Limão-Siciliano</h3>
+          <div class="price">R$ 9,99 <span>R$ 14,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-quente-5.jpg" alt="Camomila">
+          <h3>Camomila Com Leite De Aveia e Mel</h3>
+          <div class="price">R$ 12,99 <span>R$ 14,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-quente-2.jpg" alt="Chá de Hibisco">
+          <h3>Chá De Hibisco Com Maçã e Canela</h3>
+          <div class="price">R$ 9,90 <span>R$ 14,90</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-quente-3.jpg" alt="Mate Tostado">
+          <h3>Mate Tostado Com Cacau e Leite De Amêndoas</h3>
+          <div class="price">R$ 16,90 <span>R$ 19,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-quente-1.jpg" alt="Chá de Lavanda">
+          <h3>Chá De Lavanda Com Baunilha</h3>
+          <div class="price">R$ 14,99 <span>R$ 17,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chá Gelado -->
+    <div class="menu-section">
+      <h3 class="subtitle">Chás <span>Gelados</span></h3>
+      <div class="box-container">
+        <div class="box">
+          <img src="../imagens/Cha_gelado_1.jpg" alt="Fruit Tea Limão">
+          <h3>Fruit Tea Limão Gelado</h3>
+          <div class="price">R$ 14,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-gelado-5.jpg" alt="Fruit Tea Maracujá">
+          <h3>Fruit Tea Maracujá</h3>
+          <div class="price">R$ 14,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-gelado-2.jpg" alt="Fruit Tea Pitaya">
+          <h3>Fruit Tea Pitaya</h3>
+          <div class="price">R$ 17,99 <span>R$ 20,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-gelado-4.jpg" alt="Fruit Tea Frutas Vermelhas">
+          <h3>Fruit Tea Frutas Vermelhas</h3>
+          <div class="price">R$ 14,90 <span>R$ 20,90</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/cha-gelado-3.jpg" alt="Jasmin Green Tea">
+          <h3>Jasmin Green Tea Gelado</h3>
+          <div class="price">R$ 9,90 <span>R$ 12,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Milk Shakes -->
+    <div class="menu-section">
+      <h3 class="subtitle">Milk <span>Shakes</span></h3>
+      <div class="box-container">
+        <div class="box">
+          <img src="../imagens/choco-shake-7237884_640.jpg" alt="Choco Boom">
+          <h3>Choco Boom</h3>
+          <div class="price">R$ 28,99 <span>R$ 31,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/super-power-shake-7278117_640.jpg" alt="Lotus Shake">
+          <h3>Lotus Shake Shake</h3>
+          <div class="price">R$ 28,99 <span>R$ 31,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/sunrise-shake-7278121_640.jpg" alt="Gold Ferrero">
+          <h3>Gold Ferrero</h3>
+          <div class="price">R$ 26,99 <span>R$ 29,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/vista-lateral-milk-shake-de-chocolate-com-chantilly-decorado-com-doces-em-uma-jarra-de-vidro-com-alca-em-um-carrinho-de-madeira.jpg" alt="Copacabana Shake">
+          <h3>Copacabana Shake Shake</h3>
+          <div class="price">R$ 29,90 <span>R$ 34,90</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/milk-shake-de-morango-em-cima-da-mesa.jpg" alt="Morango Shake">
+          <h3>Morango Shake Shake</h3>
+          <div class="price">R$ 26,90 <span>R$ 29,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/milkshake-de-anel-de-caramelo-na-placa-de-madeira-com-livro.jpg" alt="Blueberry Shake">
+          <h3>Blueberry Shake Shake</h3>
+          <div class="price">R$ 26,99 <span>R$ 29,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/smoothie-de-chocolate.jpg" alt="Oreo Shake">
+          <h3>Oreo Shake Shake</h3>
+          <div class="price">R$ 26,99 <span>R$ 29,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/smoothie-de-milhoas-de-baunilha.jpg" alt="Crispy Shake">
+          <h3>Crispy Shake Shake</h3>
+          <div class="price">R$ 26,99 <span>R$ 29,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sobremesas -->
+    <div class="menu-section">
+      <h3 class="subtitle">Sobremesas: <span>Doces e Salgados</span></h3>
+      <div class="box-container">
+        <div class="box">
+          <img src="../imagens/porcao-de-brownie-de-chocolate-isolada-em-fundo-branco.jpg" alt="Brownie">
+          <h3>Brownie De Chocolate</h3>
+          <div class="price">R$ 9,99 <span>R$ 14,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/pumpkin-pie-7620872_640.jpg" alt="Torta Baneffee">
+          <h3>Torta Baneffee</h3>
+          <div class="price">R$ 14,99 <span>R$ 17,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/alimento-chocolate-fundo-marrom-padaria.jpg" alt="Torta Gateau">
+          <h3>Torta Gateau de Chocolate</h3>
+          <div class="price">R$ 14,99 <span>R$ 17,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/bolos.jpg" alt="Torta Romeu e Julieta">
+          <h3>Torta Romeu e Julieta</h3>
+          <div class="price">R$ 14,90 <span>R$ 17,90</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/close-de-deliciosos-bolinhos-de-chocolate-com-framboesa.jpg" alt="Petit Gateau">
+          <h3>Petit Gateau</h3>
+          <div class="price">R$ 10,90 <span>R$ 14,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/croissant-frances-fresco-na-mesa.jpg" alt="Croissant Tradicional">
+          <h3>Croissant Tradicional</h3>
+          <div class="price">R$ 13,99 <span>R$ 14,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/croissant-na-mesa.jpg" alt="Croissant Salame">
+          <h3>Croissant Salame</h3>
+          <div class="price">R$ 18,99 <span>R$ 24,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/croissants-na-mesa-de-madeira-velha.jpg" alt="Croissant Caprese">
+          <h3>Croissant Caprese</h3>
+          <div class="price">R$ 24,99 <span>R$ 26,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/croissants-e-cafe-na-mesa-de-madeira-velha.jpg" alt="Croissant Pastrami">
+          <h3>Croissant Pastrami</h3>
+          <div class="price">R$ 24,99 <span>R$ 26,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+        
+        <div class="box">
+          <img src="../imagens/delicioso-arranjo-de-pao-de-queijo.jpg" alt="Pão De Queijo">
+          <h3>Pão De Queijo</h3>
+          <div class="price">R$ 4,99 <span>R$ 6,99</span></div>
+          <a href="#" class="btn add-to-cart">Adicione ao Carrinho</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <section class="review" id="review">
     <h2 class="title">Nossos <span>Clientes</span></h2>

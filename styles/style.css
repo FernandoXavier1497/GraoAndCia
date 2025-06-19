@@ -13,16 +13,15 @@
     outline: 0;
     border: 0;
     text-decoration: none;
-    /* Removido o text-transform: capitalize daqui para não afetar tudo */
     transition: 0.2s linear;
     font-family: "Roboto", sans-serif;
 }
 
-/* Se quiser aplicar capitalize só em títulos ou algo assim, pode fazer separado */
+
 
 body {
     background-color: var(--bg);
-    padding-top: 8rem; /* Para compensar o header fixo */
+    padding-top: 8rem; /
 }
 
 section {
@@ -42,7 +41,7 @@ section {
     left: 0;
     right: 0;
     z-index: 99;
-    height: 8rem;
+    height: 10rem;
     background-color: var(--bg);
     border-bottom: var(--border);
 }
@@ -51,16 +50,25 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 68%;
+    height: 70%;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
 
 .navbar a {
-    margin: 0 1rem;
-    font-size: 1.5rem;
+    margin: 0 2rem;
+    font-size: 1.6rem;
     color: #fff;
-    text-transform: capitalize; /* Aplica capitalize só nos links da navbar */
+    text-transform: capitalize; 
+}
+
+/* NAVBAR CENTRALIZADO */
+.navbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
 }
 
 .navbar a:hover {
@@ -307,13 +315,13 @@ section {
     background: var(--main-color);
     color: #fff;
     border: none;
-    border-radius: .5rem;
+    border-radius: .5re;
     cursor: pointer;
     margin-top: 1rem;
 }
 
 .modal-content .btn:hover {
-    background: var(--hover-color);
+    background: var(--main-color);
 }
 
 .back-btn {
@@ -333,8 +341,40 @@ section {
     cursor: pointer;
     margin-top: 1rem;
     display: inline-block;
-    text-transform: capitalize; /* se quiser botões capitalizados */
+    text-transform: capitalize; 
 }
+
+.btn-cardapio{
+    text-align: center;
+    background: var(--main-color);
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+    text-transform: capitalize; 
+    margin-top: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #cba875;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle span {
+  color: #ffffff;
+}
+
+
 
 .btn:hover {
     letter-spacing: 0.1rem;
@@ -386,12 +426,12 @@ section {
     align-items: center;
     background-color: var(--black);
     gap: 1.5rem;
-    flex-wrap: wrap; /* Para responsividade */
+    flex-wrap: wrap; 
 }
 
 .about .row .content {
     padding: 2rem;
-    flex: 1 1 300px; /* Cresce e encolhe com mínimo de 300px */
+    flex: 1 1 300px; 
 }
 
 .about .row .content h3 {
@@ -422,6 +462,8 @@ section {
 
 .menu .box-container .box img {
     height: 10rem;
+    border-radius: 50px; 
+    
 }
 
 .menu .box-container .box h3 {
@@ -588,3 +630,229 @@ button:focus,
     outline: 2px solid var(--main-color);
     outline-offset: 2px;
 }
+
+
+/* SOBRE PÁGINA */
+.about-page {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* SOBRE PÁGINA - HEADER ESPECÍFICO */
+.about-page .header section {
+  justify-content: center; /* Sobrescreve apenas para a página sobre */
+  flex-wrap: wrap;
+}
+
+.about-page .navbar {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.5rem;
+  order: 2; /* Garante que fica abaixo do logo */
+}
+
+.about-page .logo {
+  order: 1; /* Garante que o logo fica acima */
+}
+
+/* Em telas maiores */
+@media (min-width: 768px) {
+  .about-page .header section {
+    justify-content: space-between; /* Volta ao layout original em desktop */
+    flex-wrap: nowrap;
+  }
+  
+  .about-page .navbar {
+    width: auto;
+    margin-top: 0;
+    order: initial;
+  }
+  
+  .about-page .logo {
+    order: initial;
+  }
+}
+
+.main-title {
+  font-size: 3.5rem;
+  color: var(--main-color);
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: none;
+  
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: var(--main-color);
+  text-align: center;
+  margin: 4rem 0 2rem;
+  text-transform: none;
+}
+
+/* História */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.history-text p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.history-image img {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Filosofia */
+.philosophy-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.philosophy-item {
+  background: var(--black);
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.philosophy-item:hover {
+  transform: translateY(-10px);
+}
+
+.philosophy-item i {
+  font-size: 3.5rem;
+  color: var(--main-color);
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-item h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.philosophy-item p {
+  font-size: 1.5rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Equipe */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.team-member {
+  background: var(--black);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--main-color);
+}
+
+.team-member h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1.4rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+/* Rodapé */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  padding: 3rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 120px;
+}
+
+.footer-info {
+  color: #fff;
+}
+
+.footer-info p {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--main-color);
+}
+
+.copyright {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: var(--border);
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .history-image {
+    order: -1;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
+

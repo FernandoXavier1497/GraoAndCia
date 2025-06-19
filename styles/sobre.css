@@ -1,0 +1,142 @@
+/* styles/sobre.css */
+
+/* VARIÁVEIS GLOBAIS */
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #000000;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+}
+
+/* HEADER - LAYOT PERFEITO */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: 10rem;
+    background-color: var(--bg);
+    border-bottom: var(--border);
+    display: flex;
+    justify-content: center;
+}
+
+.header section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    height: 100%;
+}
+
+/* LOGO */
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* NAVBAR PERFEITAMENTE CENTRALIZADO */
+.navbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: #fff;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    padding: 0.5rem 0;
+    position: relative;
+    white-space: nowrap;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.navbar a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--main-color);
+}
+
+/* ÍCONE DE VOLTA */
+.icons {
+    margin-left: auto;
+}
+
+.back-icon {
+    font-size: 2.4rem;
+    color: white;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+}
+
+.back-icon:hover {
+    color: var(--main-color);
+    transform: translateX(-3px);
+}
+
+/* CONTEÚDO PRINCIPAL */
+.about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10rem 2rem 5rem;
+}
+
+/* SEÇÃO HISTÓRIA */
+.history-section {
+    margin-bottom: 5rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* ... (mantenha o resto do seu CSS existente para as outras seções) ... */
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+    .navbar {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        padding: 1rem 0;
+    }
+    
+    .header section {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .navbar {
+        position: static;
+        transform: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .about-page {
+        padding-top: 12rem;
+    }
+}

@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutItems = document.getElementById('checkout-items');
     const checkoutTotal = document.getElementById('checkout-total');
     const checkoutForm = document.getElementById('checkout-form');
+    const backToCartBtn = document.getElementById('back-to-cart');
+    
+    // Armazenar referência aos listeners para poder removê-los
+    const buttonListeners = new WeakMap();
     
     // Mostrar/ocultar carrinho
     cartIcon.addEventListener('click', function(e) {
@@ -46,27 +50,82 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Botão Voltar para o Carrinho
-    const backToCartBtn = document.getElementById('back-to-cart');
-backToCartBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    checkoutModal.style.display = 'none';
+    backToCartBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        checkoutModal.style.display = 'none';
+        cartItemsContainer.style.display = 'block';
+    });
+
+    // Mostrar/Ocultar Cardápio Completo
+    const toggleMenuBtn = document.getElementById('toggleMenu');
+    const fullMenu = document.getElementById('fullMenu');
     
-    // Mostra o carrinho novamente
-    cartItemsContainer.style.display = 'block';
-});
-    
-    // Adicionar itens ao carrinho
-    const addToCartButtons = document.querySelectorAll('.box .btn');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const box = this.closest('.box');
-            const itemName = box.querySelector('h3').textContent;
-            const itemPrice = parseFloat(box.querySelector('.price').textContent.replace('R$ ', '').replace(',', '.'));
-            const itemImage = box.querySelector('img').src;
+    if (toggleMenuBtn && fullMenu) {
+        toggleMenuBtn.addEventListener('click', function() {
+            const isHidden = fullMenu.style.display === 'none' || fullMenu.style.display === '';
+            fullMenu.style.display = isHidden ? 'block' : 'none';
+            toggleMenuBtn.textContent = isHidden ? 'Ocultar cardápio' : 'Ver cardápio completo';
             
-            addToCart(itemName, itemPrice, itemImage);
+            if (isHidden) {
+                setTimeout(() => {
+                    fullMenu.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
         });
+    }
+
+    // Função para adicionar listeners aos botões
+    function setupAddToCartButtons() {
+        // Primeiro remove todos os listeners existentes
+        const allButtons = document.querySelectorAll('.add-to-cart');
+        allButtons.forEach(button => {
+            const existingListener = buttonListeners.get(button);
+            if (existingListener) {
+                button.removeEventListener('click', existingListener);
+            }
+        });
+        
+        // Adiciona novos listeners
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            const listener = function(e) {
+                e.preventDefault();
+                const box = this.closest('.box');
+                const itemName = box.querySelector('h3').textContent;
+                const itemPrice = parseFloat(box.querySelector('.price').textContent.replace('R$ ', '').replace(',', '.'));
+                const itemImage = box.querySelector('img').src;
+                
+                addToCart(itemName, itemPrice, itemImage);
+            };
+            
+            button.addEventListener('click', listener);
+            buttonListeners.set(button, listener);
+        });
+    }
+    
+    // Configurar os botões inicialmente
+    setupAddToCartButtons();
+    
+    // Observar mudanças no DOM para configurar botões novos
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                // Verifica se algum nó adicionado contém botões .add-to-cart
+                const hasAddToCartButtons = Array.from(mutation.addedNodes).some(node => {
+                    return node.nodeType === 1 && (node.classList.contains('add-to-cart') || node.querySelector('.add-to-cart'));
+                });
+                
+                if (hasAddToCartButtons) {
+                    // Pequeno delay para garantir que o DOM esteja pronto
+                    setTimeout(setupAddToCartButtons, 50);
+                }
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
     });
     
     // Função para adicionar item ao carrinho
@@ -86,6 +145,34 @@ backToCartBtn.addEventListener('click', function(e) {
         }
         
         updateCart();
+        
+        // Feedback visual
+        showFeedback(`${name} adicionado ao carrinho!`);
+    }
+    
+    // Mostrar feedback visual
+    function showFeedback(message) {
+        // Remove feedbacks anteriores
+        const oldFeedback = document.querySelector('.cart-feedback');
+        if (oldFeedback) {
+            document.body.removeChild(oldFeedback);
+        }
+        
+        const feedback = document.createElement('div');
+        feedback.className = 'cart-feedback';
+        feedback.textContent = message;
+        document.body.appendChild(feedback);
+        
+        setTimeout(() => {
+            feedback.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            feedback.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(feedback);
+            }, 300);
+        }, 2000);
     }
     
     // Função para atualizar o carrinho
@@ -105,7 +192,9 @@ backToCartBtn.addEventListener('click', function(e) {
             const emptyMessage = document.createElement('li');
             emptyMessage.textContent = 'Seu carrinho está vazio';
             cartItemsList.appendChild(emptyMessage);
+            checkoutBtn.style.display = 'none';
         } else {
+            checkoutBtn.style.display = 'block';
             cart.forEach(item => {
                 const cartItem = document.createElement('li');
                 cartItem.className = 'cart-item';
@@ -178,7 +267,7 @@ backToCartBtn.addEventListener('click', function(e) {
     // Abrir modal de checkout
     function openCheckoutModal() {
         if (cart.length === 0) {
-            alert('Seu carrinho está vazio!');
+            showFeedback('Seu carrinho está vazio!');
             return;
         }
         
@@ -202,9 +291,9 @@ backToCartBtn.addEventListener('click', function(e) {
         checkoutTotal.textContent = cartTotal.toFixed(2).replace('.', ',');
         checkoutModal.style.display = 'block';
 
-         // Rola para o topo do modal
+        // Rola para o topo do modal
         document.querySelector('.modal-content').scrollTop = 0;
-       }
+    }
     
     // Enviar formulário de checkout
     checkoutForm.addEventListener('submit', function(e) {
@@ -213,6 +302,12 @@ backToCartBtn.addEventListener('click', function(e) {
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
         const payment = document.getElementById('payment').value;
+        
+        // Validação básica
+        if (!name || !phone || !payment) {
+            showFeedback('Por favor, preencha todos os campos!');
+            return;
+        }
         
         // Aqui você pode adicionar a lógica para enviar o pedido
         // Por exemplo, enviar para um servidor ou exibir uma mensagem de confirmação
