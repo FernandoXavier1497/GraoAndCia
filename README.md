@@ -42,7 +42,7 @@ Cardápio interativo com preços atualizados, descrições, e botão para adicio
 
 ### 📂 Estrutura do Projeto
 
-```bash
+
 Grão&Cia/
  ├── index.html       # Página inicial
  ├── sobre.html       # Sobre a cafeteria
@@ -54,17 +54,9 @@ Grão&Cia/
 Acesse a página aqui:
 https://fernandoxavier1497.github.io/GraoAndCia/
 
-Para rodar o projeto localmente, siga os passos abaixo:
+# Visite o site da Grão & Cia
 
-Bash
-
-git clone [https://github.com/FernandoXavier1497/GraoAndCia.git](https://github.com/FernandoXavier1497/GraoAndCia.git)
-Acesse a pasta do projeto:
-
-Bash
-
-cd GraoAndCia
-Abra o arquivo index.html no seu navegador.
+ACESSE A PÁGINA AQUI: [https://fernandoxavier1497.github.io/GraoAndCia/]
 
 📌 Melhorias Futuras
 Integração com sistema de pagamentos online.
